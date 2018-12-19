@@ -71,11 +71,11 @@ def add(a,b)
 <!-- tables -->
 | NAMES  | EMAIL|
 | -------|------|
-|Rohit   |rdwivedi@gmail.com|rdwics@gmail.com
+|Rohit   |rdwivedi@gmail.com|rdwics@gmail.com|
 |rkd|rdwivedi345@outlook.com
 
 <!-- task list -->
-* [] taks incomplete
+* [ ] taks incomplete
 * [x] taks complete
 
 <!-- Tables -->
