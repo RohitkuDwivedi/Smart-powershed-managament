@@ -68,11 +68,12 @@ def add(a,b)
     return a+b
 ```
 
-```tables
-| NAMES  | EMAIL            |
-| -------|------------------|
-|Rohit   |rdwivedi@gmail.com|
-```
+<!-- tables -->
+| NAMES  | EMAIL|
+| -------|------|
+|Rohit   |rdwivedi@gmail.com|rdwics@gmail.com
+|rkd|rdwivedi345@outlook.com
+
 <!-- task list -->
 * [] taks incomplete
 * [x] taks complete
