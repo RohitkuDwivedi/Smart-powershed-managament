@@ -69,9 +69,9 @@ def add(a,b)
 ```
 
 ```tables
-| NAMES | EMAIL|
-| -------|------|
-|Rohit|rdwivedi@gmail.com|
+| NAMES  | EMAIL            |
+| -------|------------------|
+|Rohit   |rdwivedi@gmail.com|
 ```
 <!-- task list -->
 * [] taks incomplete
