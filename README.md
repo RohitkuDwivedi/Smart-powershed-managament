@@ -76,3 +76,14 @@ def add(a,b)
 <!-- task list -->
 * [] taks incomplete
 * [x] taks complete
+
+<!-- Tables -->
+| Name     | Email          |
+| -------- | -------------- |
+| John Doe | john@gmail.com |
+| Jane Doe | jane@gmail.com |
+
+<!-- Task List -->
+* [x] Task 1
+* [x] Task 2
+* [ ] Task 3
