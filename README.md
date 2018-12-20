@@ -7,6 +7,7 @@ a project on controlled electricity distribution system and reduction in load sh
 
 
 ////////////////////////////////////////////////////////////////////////////////////
+# CHEAT SHEET FOR "MARKDOWN"SYNTAX
 <!-- dummy code for learning  markdown lang>
 <!-- heading -->
 # Heading 1
