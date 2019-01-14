@@ -2,9 +2,8 @@
 a project on controlled electricity distribution system and reduction in load sheds
 # resources
 1) for power meter go to: https://www.youtube.com/watch?v=_PKQdEUam6Y
-/////////////////////////////////////////////////////////
-2)IoT energy Meter please do check link asap
-...........https://github.com/mithilaGhuge/IoT-Energy-Meter.git
+------------------------------------------------------------------------------------
+2)IoT energy Meter please do check link asap: https://github.com/mithilaGhuge/IoT-Energy-Meter.git
 
 
 
