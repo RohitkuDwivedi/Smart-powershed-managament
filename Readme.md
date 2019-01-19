@@ -16,6 +16,8 @@ ___
 ### move to new branch: ` git checkout <branch_name>`
 ### create and move to branch: ` git checkout -b <branch_name> `
 ### delete a branch: ` git branch -D <branch_name> `
+### rename a branch: ` git branch -m <old_name> <new_name>`
+### merge two branch: ` git push <dest (origin) > <source_branch(branch_name) > ` 
 
 ___
 
