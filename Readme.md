@@ -8,11 +8,17 @@ a project on controlled electricity distribution system and reduction in load sh
 ////////////////////////////////////////////////////////////////////////////////////
 
 # Git commands
-
+___
 ### Branching:
-1) create a new branch:>> `git branch <branch_name>`
 
+#### create a new branch
+ `git branch <branch_name>`
+### show all branches: ` git branch ` 
+### move to new branch: ` git checkout <branch_name>`
+### create and move to branch: ` git checkout -b <branch_name> `
+### delete a branch: ` git branch -D <branch_name> `
 
+___
 
 # CHEAT SHEET FOR "MARKDOWN"SYNTAX
 <!-- dummy code for learning  markdown lang>
