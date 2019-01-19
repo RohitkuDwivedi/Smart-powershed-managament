@@ -6,6 +6,14 @@ a project on controlled electricity distribution system and reduction in load sh
 2)IoT energy Meter please do check link asap
 ...........https://github.com/mithilaGhuge/IoT-Energy-Meter.git
 ////////////////////////////////////////////////////////////////////////////////////
+
+# Git commands
+
+### Branching:
+1) create a new branch:>> `git branch <branch_name>`
+
+
+
 # CHEAT SHEET FOR "MARKDOWN"SYNTAX
 <!-- dummy code for learning  markdown lang>
 <!-- heading -->
