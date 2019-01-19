@@ -11,8 +11,7 @@ a project on controlled electricity distribution system and reduction in load sh
 ___
 ### Branching:
 
-#### create a new branch
- `git branch <branch_name>`
+### create a new branch: `git branch <branch_name>`
 ### show all branches: ` git branch ` 
 ### move to new branch: ` git checkout <branch_name>`
 ### create and move to branch: ` git checkout -b <branch_name> `
