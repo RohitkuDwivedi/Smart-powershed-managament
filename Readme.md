@@ -1,10 +1,33 @@
 # cdac_project
 a project on controlled electricity distribution system and reduction in load sheds
+
 # resources
 1) for power meter go to: https://www.youtube.com/watch?v=_PKQdEUam6Y
 ---
 2)IoT energy Meter please do check link asap
 ...........https://github.com/mithilaGhuge/IoT-Energy-Meter.git
+
+## Task Achived and to be achived
+#### Achived
+1) base api
+2) wireframe of frontend
+3) partial transformer node
+4) patrial home node
+
+#### To achive
+1) full communication from transformer node to home node and vice versa
+2) communicate API to rpi and communication between rpi and lora Transformer node
+3) complete api from UI & API
+
+
+
+
+
+
+
+
+
+
 ___
 # Git commands
 ___
