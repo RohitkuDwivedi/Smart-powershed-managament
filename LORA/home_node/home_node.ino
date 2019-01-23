@@ -24,7 +24,8 @@
 #define BAND    433E6  //915E6 --
 
  
-// GLOBAL VARIABLES (ps:PowerShed,n:normal)
+//---------------------------GLOBAL VARIABLES (ps:PowerShed,n:normal)--------------------------------------------------
+
 int threshold = 10;   // change to 3200 of as per meter (no of led blinks per unit)
 int ps_Blinks=0;
 int n_Blinks=0;
@@ -32,16 +33,7 @@ int ps_Mode=0;
 int n_UnitsConsumed=0;
 int ps_UnitsConsumed=0;
 
-// FUNCTION DECLARATIONS
-
-void checkPsMode();
-void countIncrement();
-void sendData();
-void nModeConsume();
-void psModeConsume();
-
-
-
+//------------------------- SETUP ------------------------------------------------------
 void setup() {
   pinMode(25,OUTPUT); //Send success, LED will bright 1 second
   pinMode(33,INPUT); //Send success, LED will bright 1 second
@@ -59,23 +51,49 @@ void setup() {
   }
   Serial.println("LoRa Initial OK!");
 }
-
+//---------------------------   LOOP --------------------------------------
 void loop() {
-
-//Serial.print("Sending packet: ");
-//  // send packet
-//  LoRa.beginPacket();
-//  //LoRa.print("hello ");
-//  LoRa.print(counter);
-//  LoRa.endPacket();
-
 
 countIncrement();
 
 }
 
 
-// my functions
+//--------------------------my functions ----------------------------------
+
+//-------------- FUNCTION TO SEND DATA ---------------------------------------
+
+void mySend()
+{
+  LoRa.beginPacket();
+  LoRa.print("NODE2: ");
+  LoRa.print(counter);
+  LoRa.endPacket();
+  Serial.println("DATA SEND: ");
+  Serial.println(counter);
+}
+
+//---------------- FUNCTION TO SET INTO RECIEVE MODE -------------------------------------
+void myRecieve()
+{
+  int packetSize = LoRa.parsePacket();
+  if (packetSize){
+    // received a packet
+    Serial.print("Received'");
+
+    // read packet
+    while (LoRa.available())
+    {
+      Serial.print((char)LoRa.read());
+    }
+
+    // print RSSI of packet
+    Serial.print("' with RSSI ");
+    Serial.println(LoRa.packetRssi());
+  }
+}
+
+
 void checkPsMode(){}
 
 void countIncrement(){

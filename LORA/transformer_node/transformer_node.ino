@@ -13,11 +13,16 @@
 // GPIO14 -- SX1278's RESET
 // GPIO26 -- SX1278's IRQ(Interrupt Request)
 
+//-----------------------------------------< GLOBAL VARIABLES >---------------------------------------------------------------------
 #define SS 18
 #define RST 14
 #define DI0 26
 #define BAND 433E6
 
+int interval = 10000;
+int prevTime = millis();
+int counter = 0;
+//--------------------------------------------< SETUP >------------------------------------------------------------------
 void setup()
 {
   Serial.begin(115200);
@@ -35,9 +40,8 @@ void setup()
   }
 }
 
-int interval = 10000;
-int prevTime = millis();
-int counter = 0;
+//--------------------------------------------< LOOP >------------------------------------------------------------------
+
 void loop()
 {
   myRecieve(); // set LoRa to recieve mode
@@ -49,6 +53,10 @@ void loop()
   }
 }
 
+//--------------------------------------------< MY FUNCTIONS >------------------------------------------------------------------
+
+//-------------- FUNCTION TO SEND DATA ---------------------------------------
+
 void mySend()
 {
   LoRa.beginPacket();
@@ -59,11 +67,11 @@ void mySend()
   Serial.println(counter);
 }
 
+//---------------- FUNCTION TO SET INTO RECIEVE MODE -------------------------------------
 void myRecieve()
 {
   int packetSize = LoRa.parsePacket();
-  if (packetSize)
-  {
+  if (packetSize){
     // received a packet
     Serial.print("Received'");
 
@@ -77,4 +85,22 @@ void myRecieve()
     Serial.print("' with RSSI ");
     Serial.println(LoRa.packetRssi());
   }
+  sendToPi();
+}
+
+//--------- CHECK FOR POWESHED MODE --------------------------------------------
+void checkPoweShed(){
+/*  
+ *   powerShedMode = digitalRead(poweShedPin);
+ *   if(powerShedMode == 1 ){
+ *   mySend();
+ *   }
+ */
+// check for corresponding pin which will be high or low based on rpi interfacing   
+
+}
+//-------- FUNCTION TO SEND CONSUMPTION TO PI ------------------------------
+int sendToPi(){
+  //send data to pi
+return 1;  
 }
