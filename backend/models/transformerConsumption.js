@@ -1,5 +1,5 @@
 const Influx = require('influxdb-nodejs');
-// const Influx1 = require('influx');
+//const Influx1 = require('influx');
 
 
 const client = new Influx('http://127.0.0.1:8086/pwr_shed102');
@@ -9,27 +9,30 @@ const client = new Influx('http://127.0.0.1:8086/pwr_shed102');
 // b --> booleanconst client = new Influx('http://127.0.0.1:8086/mydb');
 
 const fieldSchema = {
-  totalUnitsPerDay: 'i',
+  transformerUnitConsumedPerMonth: 'i',
 };
 const tagSchema = {
   // spdy: ['speedy', 'fast', 'slow'],
   
-  area :'*',
+  area:'*',
+ 
+
+ // user :'*'
   
 };
-client.schema('city', fieldSchema, tagSchema, {
-  // default is false
-  stripUnknown: true,
-});
+// client.schema('city', fieldSchema, tagSchema, {
+//   // default is false
+//   stripUnknown: true,
+// });
 
-module.exports.transformer_consumption = (data,sucessCallback,errCallback) => {
+module.exports.transformerConsumption = (data,sucessCallback,errCallback) => {
 //callback -> (err,data)=>{ send response }
-client.write('tranformer_consumption1')
+client.write('TransformerUnitsconsumed')
   .tag({ 
     area : data.area,
   })
   .field({
-    totalUnitsPerDay : data.units
+    totalUnitsPerDay:data.units
   })
   .then( ()=>{ 
     sucessCallback() 
@@ -37,4 +40,6 @@ client.write('tranformer_consumption1')
   .catch( (err) => { 
     errCallback(err) 
   })
+  
+
 }

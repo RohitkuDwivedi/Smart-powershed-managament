@@ -19,4 +19,10 @@ router.post('/', (req, res) => {
     })
 });
 
+router.get('', (req, res) => {
+    response= { data:"You have sent"+JSON.stringify(req.body) }
+    console.log(res.body);   
+     res.json(response);
+});
+
 module.exports = router;

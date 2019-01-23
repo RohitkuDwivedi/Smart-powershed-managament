@@ -17,7 +17,7 @@ router.post('/', (req, res) => {
     // }
     console.log(req.body);
     
-    transformerConsumption.transformer_consumption(req.body, () => { sendRes(res, true, "sucessfully added") },
+    transformerConsumption.transformerConsumption(req.body, () => { sendRes(res, true, "sucessfully added") },
         (err) =>{ sendRes(res, false, "ERROR") })
 
 });

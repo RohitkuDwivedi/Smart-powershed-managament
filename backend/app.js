@@ -1,17 +1,11 @@
 const express = require('express');
 const app = express();
 const bodyParser = require("body-parser");
-
 const mongoose = require('mongoose');
-const Influx = require('influxdb-nodejs');
-
-
-
-
-app.use(bodyParser.json());
-
 const cors = require('cors');
+
 app.use(cors());
+app.use(bodyParser.json());
 
 // const variables = require('./utils/variables');
 
@@ -36,8 +30,7 @@ var addNewTranformer = require('./routes/addNewTranformer');
 var userGetsPersonalUsage = require('./routes/userGetsPersonalUsage');
 var userConsumptionInPowerShed = require('./routes/userConsumptionInPowerShed');
 var transformerConsumption = require('./routes/transformerConsumption');
-var govtGetsAreawiseConsumption = require('./routes/govtGetAreawiseConsumption');
-
+var govtGetsAreawiseConsumption = require('./routes/govtGetsAreawiseConsumption');
 
 app.use('/addUser', addUser)
 
@@ -45,11 +38,11 @@ app.use('/addNewTranformer',addNewTranformer)
 
 app.use('/userConsumptionInPowerShed', userConsumptionInPowerShed)
 
-app.use('/tranformerConsumption', transformerConsumption);
+app.use('/tranformerConsumption', transformerConsumption)
 
 app.use('/userGetsPersonalUsage',userGetsPersonalUsage)
 
-app.use('/govtGetsAreawiseConsumption', govtGetsAreawiseConsumption)
+app.use('/govtGetsAreawiseConsumption',govtGetsAreawiseConsumption )
 
 app.get('*', (req, res) => {
     res.send('Enter valid url');
