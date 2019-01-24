@@ -1,4 +1,19 @@
-<p>
-  hello {{userName}}
-  </p>
-<button (click)="logout()" > LOGOUT </button>
+<user-header></user-header>
+<div class="box">
+
+  <div class="consumption">
+    <div class="tag">UNITS:</div>
+    <div class="value">{{units}}</div>
+  </div>
+
+  <div class="rate">
+    <div class="tag">RATE:</div>
+    <div class="value">{{rate}}</div>
+  </div>
+
+  <div class="bill">
+    <div class="tag">BILL:</div>
+    <div class="value">{{units*rate}}</div>
+  </div>
+
+</div>

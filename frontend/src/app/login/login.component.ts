@@ -22,7 +22,7 @@ export class LoginComponent implements OnInit {
   }else{
     sessionStorage.setItem("role","user")
     sessionStorage.setItem("userName",this.username)
-    window.location.href =  "http://localhost:4200/user"
+    window.location.href =  "http://localhost:4200/user/home"
 
   }
   }

@@ -10,7 +10,8 @@ import {LoginService} from "../login.service";
 export class UserComponent implements OnInit {
    userReply:any
    userName:String
-
+   units=1324
+   rate=15
 
    user = {
     name:"rkkljd",
@@ -34,10 +35,5 @@ export class UserComponent implements OnInit {
       this.userName = sessionStorage.getItem("userName")
     }
   }  
-
-  logout(){
-    sessionStorage.clear()
-    window.location.href = "http://localhost:4200/login"
-  }
 
 }

@@ -1,0 +1,21 @@
+.box{
+    padding-top: 10px;
+    display: flex;
+    flex-flow: column;
+}
+.consumption,.bill,.rate{
+    margin-right: 10%;
+    margin-left:  10%;
+    border: 1px solid black;
+    display: flex;
+    flex-flow: row;
+    justify-content: safe
+}
+.tag{
+    width: 50%;
+    text-align: center;
+}
+.value{
+    width: 50%;
+    text-align: left
+}
