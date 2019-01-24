@@ -1,0 +1,47 @@
+.header{
+    display: flex;
+    flex-flow: row;
+    width: 100%;
+    right: 0;
+    left: 0;
+    padding: 5px 1px ;
+
+    justify-content: space-between;
+
+    /* border: 1px solid black; */
+}
+.left{
+    display: flex;
+    flex-flow: row;
+    padding-left: 2%; 
+}
+.right{
+    display: flex;
+    flex-flow: row;
+    padding-right: 2%; 
+}
+.text{
+    margin: 0;
+    padding: 2px 20px;
+}
+.text:hover{
+    transform: scale(1.2);
+    transition: 100ms;
+    text-shadow: 3px 5px 5px gray;
+    /* box-shadow: 0 0 5px paleturquoise; */
+}
+
+.divider{
+    border: 1px solid black;
+}
+
+
+a{
+    text-decoration: none;
+    color: black;
+}
+
+hr{
+    padding: 0;
+    margin: 0;
+}

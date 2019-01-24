@@ -19,14 +19,13 @@ export class UserComponent implements OnInit {
     pincode:20384,
     phoneno:998077770648,
     email:"roh80it.ku.dwivedi@gmail.com",
-    userName:"8RohitKuDwivedi",
-    password:"bl8a-bla-bla-bla-bla-bla"
+    userName:"RohitKuDwivedi",
+    password:"bla-bla"
   }
-
-  // x= JSON.stringify(this.user)
+  
   constructor(private userService:LoginService) { 
   }
-     
+
   ngOnInit(){
     if(sessionStorage.getItem("role")!="user"){
     window.location.href= "http://localhost:4200/login"

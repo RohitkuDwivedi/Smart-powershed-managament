@@ -1,0 +1,23 @@
+.main{
+    display: flex;
+    flex-flow: column;
+    justify-content: space-around;
+    left: 10;
+    right: 10;
+    background-color: darkgrey;
+}
+
+
+.field{
+    display: flex;
+    flex-flow: row;
+    background-color: rgb(196, 250, 250);
+}
+.tag{
+    width: 50%;
+    text-align: right;
+}
+.value{ 
+    padding-left: 10px;
+    text-align: left;
+}

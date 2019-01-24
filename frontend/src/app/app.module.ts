@@ -11,6 +11,9 @@ import { FormsModule } from '@angular/forms';
 import { UserHeaderComponent } from './user-header/user-header.component';
 import { AdminHeaderComponent } from './admin-header/admin-header.component';
 import { UserDetailsComponent } from './user-details/user-details.component';
+import { AddNewUserComponent } from './add-new-user/add-new-user.component';
+import { AddNewTransformerComponent } from './add-new-transformer/add-new-transformer.component';
+import { PowerShedModeComponent } from './power-shed-mode/power-shed-mode.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +24,10 @@ import { UserDetailsComponent } from './user-details/user-details.component';
     SidebarComponent,
     UserHeaderComponent,
     AdminHeaderComponent,
-    UserDetailsComponent
+    UserDetailsComponent,
+    AddNewUserComponent,
+    AddNewTransformerComponent,
+    PowerShedModeComponent
   ],
   imports: [
     BrowserModule,
