@@ -13,3 +13,8 @@ width: 100%;
     display: flex;
     flex-flow: column
 }
+
+*{
+    background-color: rgb(4, 28, 80);
+    color: rgb(255, 218, 6)
+}
