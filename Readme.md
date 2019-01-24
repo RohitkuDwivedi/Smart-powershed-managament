@@ -50,8 +50,10 @@ user  = {
     password  : STRING
   }
 #### RESPONSE:
-##### IF USER EXISTS : USER EXISTS
-##### IF USER CAN'T FOUND :USER NOT FOUND 
+##### IF USER EXISTS : 
+USER EXISTS
+##### IF USER CAN'T FOUND :
+USER NOT FOUND 
 
 
 
