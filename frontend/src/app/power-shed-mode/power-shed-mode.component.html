@@ -1,2 +1,24 @@
-<admin-header></admin-header> 
+<admin-header></admin-header>
 <h1>POWER SHED MODE</h1>
+<div class="box">
+    <div class="item">
+        <mat-slide-toggle class="example-margin" [color]="color" [checked]="checked" [disabled]="disabled">
+            POWE SHED MODE
+        </mat-slide-toggle>
+    </div>
+    <div class="checkbox">
+        <mat-checkbox  *ngFor="let transformer of transformers" [(ngModel)]="transformer.status">{{transformer.id}}  {{transformer.status}}</mat-checkbox>
+    </div>
+</div>
+
+
+<!-- dropdown
+    <div class="item">
+        <mat-form-field>
+            <mat-select placeholder="Transformer">
+                <mat-option *ngFor="let food of foods" [value]="food.value">
+                    {{food.viewValue}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div> -->
