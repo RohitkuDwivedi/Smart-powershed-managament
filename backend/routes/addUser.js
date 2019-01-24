@@ -19,6 +19,18 @@ router.post('/', (req, res) => {
     })
 });
 
+router.post('/authenticate', (req, res) => {
+    User.authenticate(req.body,(err,user)=>{
+        if(err || !user){
+            sendRes(res,false,"user not found")
+        }
+
+        else{
+            sendRes(res,true,"user found")
+        }
+    })
+});
+
 router.get('', (req, res) => {
     response= { data:"You have sent"+JSON.stringify(req.body) }
     console.log(res.body);   

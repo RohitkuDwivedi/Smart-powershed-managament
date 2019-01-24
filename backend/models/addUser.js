@@ -41,3 +41,14 @@ module.exports.addUser = (user, callback) => {
     User.create( user, callback )
 }
 
+module.exports.authenticate = (user, callback) => {
+    // Adventure.findOne({ type: 'iphone' }, function (err, adventure) {});
+finduser={
+    
+    userName : user.userName,
+    password : user.password 
+}
+    User.findOne(finduser,callback)
+
+}
+
