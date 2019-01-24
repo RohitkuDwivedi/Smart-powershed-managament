@@ -22,7 +22,7 @@ a project on controlled electricity distribution system and reduction in load sh
 
 ---
 # API 
-#### to add new user 
+#### 1) to add new user 
 #####     api:  ip:port/addUser
 ##### method :  POST
 ##### BODY : 
