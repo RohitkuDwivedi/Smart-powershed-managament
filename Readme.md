@@ -22,6 +22,7 @@ a project on controlled electricity distribution system and reduction in load sh
 
 ---
 # API 
+
 #### 1) to add new user 
 #####     api:  ip:port/addUser
 ##### method :  POST
@@ -35,7 +36,23 @@ user = {
 userName: STRING
 password: STRING
   }
+#### RESPONSE:
+##### IF USER ADDED : User added successfully
+##### IF USER CAN'T BE ADDED : User can't be added
+
   
+  
+#### 2) to authenticate users
+#### method : POST 
+##### BODY : 
+user  = {
+    userName : STRING,
+    password  : STRING
+  }
+#### RESPONSE:
+##### IF USER EXISTS : USER EXISTS
+##### IF USER CAN'T FOUND :USER NOT FOUND 
+
 
 
 
