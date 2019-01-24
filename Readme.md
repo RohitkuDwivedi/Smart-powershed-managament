@@ -20,6 +20,23 @@ a project on controlled electricity distribution system and reduction in load sh
 3) complete api from UI & API
 
 
+---
+# API 
+#### to add new user 
+#####     api:  ip:port/addUser
+##### method :  POST
+##### BODY : 
+user = {
+    name: STRING,
+ address: STRING,
+ pincode: NUMBER,
+ phoneno: NUMBER,
+   email: STRING,
+userName: STRING
+password: STRING
+  }
+  
+  
 
 
 
@@ -61,7 +78,7 @@ _this text_ is italic
 **this text** is italic <br>
 __this text__ is italic
 
-<!-- Strike through -->
+<!-- Strike through -->pincode: NUMBER,
 ~~ strike through ~~
 <!-- horizontal rule -->
 1) ===
