@@ -20,6 +20,41 @@ a project on controlled electricity distribution system and reduction in load sh
 3) complete api from UI & API
 
 
+---
+# API 
+
+#### 1) to add new user 
+#####     api:  ip:port/addUser
+##### method :  POST
+##### BODY : 
+user = {
+    name: STRING,
+ address: STRING,
+ pincode: NUMBER,
+ phoneno: NUMBER,
+   email: STRING,
+userName: STRING
+password: STRING
+  }
+#### RESPONSE:
+##### IF USER ADDED : User added successfully
+##### IF USER CAN'T BE ADDED : User can't be added
+
+  
+  
+#### 2) to authenticate users
+#### method : POST 
+##### BODY : 
+user  = {
+    userName : STRING,
+    password  : STRING
+  }
+#### RESPONSE:
+##### IF USER EXISTS : 
+USER EXISTS
+##### IF USER CAN'T FOUND :
+USER NOT FOUND 
+
 
 
 
@@ -61,7 +96,7 @@ _this text_ is italic
 **this text** is italic <br>
 __this text__ is italic
 
-<!-- Strike through -->
+<!-- Strike through -->pincode: NUMBER,
 ~~ strike through ~~
 <!-- horizontal rule -->
 1) ===
@@ -84,6 +119,7 @@ __this text__ is italic
 1. list2
 <!-- code -->
 ` <br> <html>`
+
 <!-- image-->
 ![this is my image](https://avatars0.githubusercontent.com/u/30552632?s=40&v=4)
 
