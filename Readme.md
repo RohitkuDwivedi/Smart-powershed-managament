@@ -121,6 +121,23 @@ Usage and bill can't be displayed
 ##### IF  no error:
 bill
 
+#### 7)to get userConsumptionInPowerShed
+#####     api:  ip:port/userConsumptionInPowerShed
+##### method :  POST
+##### BODY :
+fieldSchema = {
+  unitConsumed: 'i',
+};
+tagSchema = {
+  user :'*' 
+};
+
+#### RESPONSE:
+##### IF  without any err : 
+sucess
+##### IF error:
+ERROR
+
 
 
 
