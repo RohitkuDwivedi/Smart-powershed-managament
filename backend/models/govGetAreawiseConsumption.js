@@ -1,5 +1,6 @@
+//govGetAreawiseConsumption
+
 const Influx = require('influxdb-nodejs');
-//const Influx1 = require('influx');
 
 
 const client = new Influx('http://127.0.0.1:8086/pwr_shed102');
@@ -12,17 +13,9 @@ const fieldSchema = {
   transformerUnitConsumedPerMonth: 'i',
 };
 const tagSchema = {
-  // spdy: ['speedy', 'fast', 'slow'],
   area:'*',
   tid:'i'
-
- // user :'*'
-  
 };
-// client.schema('city', fieldSchema, tagSchema, {
-//   // default is false
-//   stripUnknown: true,
-// });
 
 module.exports.govtTransformerConsumption = (data,sucessCallback,errCallback) => {
 //callback -> (err,data)=>{ send response }

@@ -26,7 +26,7 @@ router.post('/authenticate', (req, res) => {
         }
 
         else{
-            sendRes(res,true,"user found")
+            sendRes(res,true,user)
         }
     })
 });

@@ -10,14 +10,9 @@ sendRes = (res, success, msg) => {
 }
 
 router.post('/', (req, res) => {
-    // data =  {
-    //     user:req.body.user,
-    //     consumptions:req.body.consumptions
-
-    // }
     console.log(req.body);
     
-    govGetAreawiseConsumption.govtTransformerConsumption(req.body, () => { sendRes(res, true, "sucessfully added") },
+    govGetAreawiseConsumption.govtTransformerConsumption(req.body, () => { sendRes(res, true, "SUCCESS") },
         (err) =>{ sendRes(res, false, "ERROR") })
 
 });

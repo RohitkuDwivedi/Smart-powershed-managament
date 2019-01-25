@@ -17,7 +17,7 @@ router.post('/', (req, res) => {
     // }
     console.log(req.body);
     
-    powerShed.consumption(req.body, () => { sendRes(res, true, "sucessfully added") },
+    powerShed.consumption(req.body, () => { sendRes(res, true, "sucess") },
         (err) =>{ sendRes(res, false, "ERROR") })
 
 });

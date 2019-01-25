@@ -40,8 +40,6 @@ password: STRING
 ##### IF USER ADDED : User added successfully
 ##### IF USER CAN'T BE ADDED : User can't be added
 
-  
-  
 #### 2) to authenticate users
 #### method : POST 
 ##### BODY : 
@@ -50,11 +48,109 @@ user  = {
     password  : STRING
   }
 #### RESPONSE:
-##### IF USER EXISTS : 
-USER EXISTS
-##### IF USER CAN'T FOUND :
-USER NOT FOUND 
+##### IF user exits: 
+User Created
+##### IF user not found :
+User can't be created
 
+#### 3) to add transformer
+#####     api:  ip:port/addNewTranformer
+##### method :  POST
+##### BODY : 
+TransformerSchema = {
+tranformerId : STRING,
+areaPincode : NUMBER,
+   }
+#### RESPONSE:
+##### IF Transformer EXISTS : 
+Transformer added
+##### IF Transformer not found :
+Transformer not added
+   
+#### 4)to govtGetAreawiseConsumption
+#####     api:  ip:port/govtGetsAreawiseConsumption
+##### method :  POST
+##### BODY : 
+fieldSchema = {
+  transformerUnitConsumedPerMonth: 'i',
+};
+tagSchema = {
+  area:'*',
+  tid:'i'
+};
+#### RESPONSE:
+##### IF gets consumption without any err : 
+SUCCESS
+##### IF error:
+ERROR
+
+
+#### 5)to get tranformerConsumption
+#####     api:  ip:port/tranformerConsumption
+##### method :  POST
+##### BODY : 
+fieldSchema = {
+  transformerUnitConsumedPerMonth: 'i',
+};
+tagSchema = {
+  area:'*', 
+};
+#### RESPONSE:
+##### IF gets consumption without any err : 
+SUCCESS
+##### IF error:
+ERROR
+
+
+#### 6)to get userGetsPersonalUsage
+#####     api:  ip:port/userGetsPersonalUsage
+##### method :  POST
+##### BODY :
+unitsConsumedPerMonth: {
+        type: Number,
+        required: true
+    },
+    Bill :{
+        type : Number,
+        required : true
+    }
+
+#### RESPONSE:
+##### IF gets consumption with any err : 
+Usage and bill can't be displayed
+##### IF  no error:
+bill
+
+#### 7)to get userConsumptionInPowerShed
+#####     api:  ip:port/userConsumptionInPowerShed
+##### method :  POST
+##### BODY :
+fieldSchema = {
+  unitConsumed: 'i',
+};
+tagSchema = {
+  user :'*' 
+};
+
+#### RESPONSE:
+##### IF  without any err : 
+sucess
+##### IF error:
+ERROR
+
+
+
+
+
+#### 3) to add transformer
+#####     api:  ip:port/addNewTranformer
+##### method :  POST
+##### BODY : 
+TransformerSchema = {
+tranformerId : STRING,
+areaPincode : NUMBER,
+   }
+  
 
 
 
