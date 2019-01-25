@@ -12,15 +12,12 @@ const fieldSchema = {
   unitConsumed: 'i',
 };
 const tagSchema = {
-  // spdy: ['speedy', 'fast', 'slow'],
-  
-  user :'*'
-  
+  user :'*' 
 };
-client.schema('city', fieldSchema, tagSchema, {
-  // default is false
-  stripUnknown: true,
-});
+// client.schema('city', fieldSchema, tagSchema, {
+//   // default is false
+//   stripUnknown: true,
+// });
 
 module.exports.consumption = (data,sucessCallback,errCallback) => {
 //callback -> (err,data)=>{ send response }

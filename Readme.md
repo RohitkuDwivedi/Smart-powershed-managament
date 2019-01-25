@@ -37,6 +37,16 @@ password: STRING
   }
   
 
+#### 3) to add transformer
+#####     api:  ip:port/addNewTranformer
+##### method :  POST
+##### BODY : 
+TransformerSchema = {
+tranformerId : STRING,
+areaPincode : NUMBER,
+   }
+  
+
 
 
 

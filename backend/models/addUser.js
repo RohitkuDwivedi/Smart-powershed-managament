@@ -3,11 +3,13 @@ const mongoose = require('mongoose');
 const UserSchema = mongoose.Schema({
     name: {
         type: String,
-        required: true
+        required: true,
+        unique: true
     },
     address: {
         type: String,
-        required: true
+        required: true,
+        unique: true
         
     },
     pincode: {
@@ -17,10 +19,12 @@ const UserSchema = mongoose.Schema({
     },
     phoneno: {
         type: Number,
-        required: true
+        required: true,
+        unique: true
     },
     email: {
         type: String,
+        unique: true
         
     },
 
@@ -42,7 +46,6 @@ module.exports.addUser = (user, callback) => {
 }
 
 module.exports.authenticate = (user, callback) => {
-    // Adventure.findOne({ type: 'iphone' }, function (err, adventure) {});
 finduser={
     
     userName : user.userName,

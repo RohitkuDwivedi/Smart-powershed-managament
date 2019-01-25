@@ -7,23 +7,12 @@ const cors = require('cors');
 app.use(cors());
 app.use(bodyParser.json());
 
-// const variables = require('./utils/variables');
 
-// const mongoose = require('mongoose');
 
 mongoose.set('useCreateIndex', true)
 mongoose.connect('mongodb://localhost/pwr_shed' , {
     useNewUrlParser: true
 });
-
-// const client = new Influx('http://127.0.0.1:8086/pwr_shed1');
-
-// mongoose.connection.on('connected', () => {
-//     console.log('Connected to database ' +mongodb.db );
-// });
-// mongoose.connection.on('error', () => {
-//     console.log('Connection error');
-// });
 
 var addUser = require("./routes/addUser")
 var addNewTranformer = require('./routes/addNewTranformer');
