@@ -1,5 +1,11 @@
-<form >
-  <input type="text" placeholder="USERNAME" name="userName" [(ngModel)]="username" ><br>
-  <input type="password" placeholder="PASSWORD" name="passWord" [(ngModel)]="password" ><br>
-  <input type="submit" (click)="login()" ><br>
-</form>
+<h1>LOGIN</h1>
+<div class="box">
+    <mat-form-field class="example-full-width">
+        <input matInput type="text" placeholder="USERNAME" name="username" [(ngModel)]="userName" >
+    </mat-form-field>    
+    <mat-form-field class="example-full-width">
+        <input matInput type="password" placeholder="PASSWORD" name="passWord" [(ngModel)]="password">
+    </mat-form-field>
+
+    <button class="example-full-width" type="submit" (click)="login()" mat-button>LOGIN</button>
+</div>

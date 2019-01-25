@@ -11,5 +11,12 @@ export class AdminHeaderComponent implements OnInit {
 
   ngOnInit() {
   }
+  logout(){
+    sessionStorage.clear();
+    window.location.href="http://localhost:4200/login"
+    console.log("CLICKED");
+    
+
+  }
 
 }

@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { RouterLink } from '@angular/router';
-
+import {LoginService} from "../login.service"
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -8,21 +7,37 @@ import { RouterLink } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  username = ""
-  password = ""
-  constructor() { }
+userName=""
+password=""
+
+
+
+
+resp
+  constructor(private userService:LoginService ) { }
 
   ngOnInit() {
   }
 
   login(){
-    if(this.username=="admin" && this.password == "admin"){  
+    const body={
+      userName:this.userName,
+      password:this.password
+    }
+     console.log(body);
+     let response 
+     this.userService.authenticateUser(body).
+     subscribe(res => {this.resp=res
+     console.log(this.resp);
+     })
+     
+    if(this.userName=="admin" && this.password == "admin"){  
       sessionStorage.setItem("role", "admin");
-    window.location.href =  "http://localhost:4200/admin"
+   // window.location.href =  "http://localhost:4200/admin"
   }else{
     sessionStorage.setItem("role","user")
-    sessionStorage.setItem("userName",this.username)
-    window.location.href =  "http://localhost:4200/user/home"
+    sessionStorage.setItem("userName",this.userName)
+   // window.location.href =  "http://localhost:4200/user/home"
 
   }
   }
