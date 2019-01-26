@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {LoginService} from '../login.service'
+import { from } from 'rxjs';
 
 @Component({
   selector: 'app-add-new-user',
@@ -7,9 +9,38 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddNewUserComponent implements OnInit {
 
-  constructor() { }
+  constructor(private user:LoginService) { }
 
-  ngOnInit() {
+  name:String
+  address:String
+  pincode:Number
+  email:String
+  userName:String
+  password:String
+  phoneno:Number
+  res:any
+
+
+  ngOnInit() {}
+
+  addUser(){
+    const body = {
+      name:this.name,
+      address:this.address,
+      pincode:this.pincode,
+      email:this.email,
+      userName:this.userName,
+      password:this.password,
+      phoneno:this.phoneno
+    } 
+    console.log(body);
+    this.user.addUser(body).subscribe(
+      temp => {
+        this.res = temp
+        console.log("server Res"+ JSON.stringify(temp))
+      }
+    )
+
   }
 
 }

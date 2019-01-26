@@ -34,6 +34,5 @@ client.write('consumed')
   .catch( (err) => { 
     errCallback(err) 
   })
-  //  .catch( console.error());
 
 }

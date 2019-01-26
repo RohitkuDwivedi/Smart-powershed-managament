@@ -13,7 +13,7 @@ sendRes = (res, success, msg) => {
 
 router.post('/', (req, res) => {
     User.addUser(req.body, (err, user) => {
-        if (err) sendRes(res, false, "User can't be created");
+        if (err) sendRes(res, false, "User can't be created"+user);
         if (user) sendRes(res, true,
             "User Created " + user);
     })

@@ -11,7 +11,7 @@ export class TransformerService {
   constructor( private http:HttpClient) { }
 
   url = "http://localhost:3000/addNewTransformer" 
-  // url1 = "http://localhost:3000/addNewTransformer/displayAllTransformers"
+
   data:any
   httpOptions = {
     headers: new HttpHeaders({

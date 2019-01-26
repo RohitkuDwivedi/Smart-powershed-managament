@@ -19,7 +19,9 @@ export class LoginService {
   authenticateUser(body){
     return this.http.post(this.url+"/authenticate",body,this.httpOptions)
   }
-  addUser(user){
-    return this.http.post(this.url,user,this.httpOptions)
+  addUser(body){
+    console.log(body);  
+    return this.http.post(this.url,body,this.httpOptions)
+    
   }
 }
