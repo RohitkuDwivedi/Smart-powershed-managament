@@ -11,6 +11,7 @@ export class TransformerService {
   constructor( private http:HttpClient) { }
 
   url = "http://localhost:3000/addNewTransformer" 
+  // url1 = "http://localhost:3000/addNewTransformer/displayAllTransformers"
   data:any
   httpOptions = {
     headers: new HttpHeaders({
@@ -19,6 +20,10 @@ export class TransformerService {
   };
   addNewTransformer(body){
     return this.http.post(this.url,body,this.httpOptions)
+  }
+
+  showall(){
+    return this.http.get(this.url+"/displayAllTransformers",this.httpOptions)
   }
   
   

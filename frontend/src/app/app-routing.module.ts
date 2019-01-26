@@ -8,6 +8,7 @@ import {AddNewUserComponent} from "./add-new-user/add-new-user.component"
 import {AddNewTransformerComponent} from "./add-new-transformer/add-new-transformer.component"
 import {PowerShedModeComponent} from "./power-shed-mode/power-shed-mode.component"
 
+
 import {UserHeaderComponent} from "./user-header/user-header.component"
 import {AdminHeaderComponent} from "./admin-header/admin-header.component"
 import { from } from 'rxjs';
@@ -22,6 +23,7 @@ const routes: Routes = [
   {path:"admin/powerShedMode",component:PowerShedModeComponent},
   {path:"admin/newTransformer",component:AddNewTransformerComponent},
   
+
   // Remove when done
   {path:"uheader",component:UserHeaderComponent},
   {path:"aheader",component:AdminHeaderComponent}

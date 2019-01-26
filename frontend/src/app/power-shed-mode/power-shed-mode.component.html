@@ -3,11 +3,21 @@
 <div class="box">
     <div class="item">
         <mat-slide-toggle class="example-margin" [color]="color" [checked]="checked" [disabled]="disabled">
-            POWE SHED MODE
+    
+            POWER SHED MODE
         </mat-slide-toggle>
     </div>
-    <div class="checkbox">
+    <!-- <div class="checkbox">
         <mat-checkbox  *ngFor="let transformer of transformers" [(ngModel)]="transformer.status">{{transformer.id}}  {{transformer.status}}</mat-checkbox>
+    </div> -->
+    <div class = "trans">
+    <ul>
+            <ul class="trans" *ngFor="let transformer of myTransformers">
+             Id {{ transformer.transformerId }} <br>
+             AreaPincode {{ transformer.areaPincode }}
+            
+            </ul>
+    </ul>
     </div>
 </div>
 
@@ -22,3 +32,4 @@
             </mat-select>
         </mat-form-field>
     </div> -->
+   

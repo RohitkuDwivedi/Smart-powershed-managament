@@ -62,9 +62,6 @@ import {
   MatTreeModule
 } from '@angular/material';
 
-
-
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -77,7 +74,8 @@ import {
     UserDetailsComponent,
     AddNewUserComponent,
     AddNewTransformerComponent,
-    PowerShedModeComponent
+    PowerShedModeComponent,
+ 
   ],
   imports: [
     BrowserModule,
