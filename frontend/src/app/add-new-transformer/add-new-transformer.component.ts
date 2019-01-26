@@ -11,14 +11,17 @@ export class AddNewTransformerComponent implements OnInit {
   transformerCode:string
   transformerPin:number
   res:any
-  body={
-    transforemrId:this.transformerCode,
-    areaPincode:this.transformerPin
-  }
+
   constructor(private transforemr:TransformerService) { }
   ngOnInit(){}
   addNewTransformer(){
-    this.transforemr.addNewTransformer(this.body).subscribe(
+    const body={
+      transformerId:this.transformerCode,
+      areaPincode:this.transformerPin
+    }
+    console.log("sending"+ JSON.stringify(body));
+    
+    this.transforemr.addNewTransformer(body).subscribe(
       temp => {
         this.res = temp
         console.log(temp)
