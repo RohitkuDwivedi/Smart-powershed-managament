@@ -138,27 +138,6 @@ sucess
 ##### IF error:
 ERROR
 
-
-
-
-
-#### 3) to add transformer
-#####     api:  ip:port/addNewTranformer
-##### method :  POST
-##### BODY : 
-TransformerSchema = {
-tranformerId : STRING,
-areaPincode : NUMBER,
-   }
-  
-
-
-
-
-
-
-
-
 ___
 # Git commands
 ___
