@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const TransformerSchema = mongoose.Schema({
-    tranformerId: {
+    transformerId: {
         type: String,
         required: true
     },
@@ -16,5 +16,9 @@ const newTransformer = module.exports = mongoose.model("addNewTransformer", Tran
 
 module.exports.addNewTransformer = (Transformer, callback) => {
     newTransformer.create(Transformer, callback)
+}
+
+module.exports.showall = (Transformer,callback) => {
+    newTransformer.find(Transformer,callback)
 }
 

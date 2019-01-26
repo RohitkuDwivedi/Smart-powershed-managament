@@ -7,8 +7,12 @@ const UserSchema = mongoose.Schema({
         unique: true
     },
     address: {
-        type: String,
-        required: true,
+        type: String,//newTransformer.create(Transformer, callback)
+    
+    
+        required: true,//newTransformer.create(Transformer, callback)
+    
+    
         unique: true
         
     },
