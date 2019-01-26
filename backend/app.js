@@ -15,7 +15,7 @@ mongoose.connect('mongodb://localhost/pwr_shed' , {
 });
 
 var addUser = require("./routes/addUser")
-var addNewTranformer = require('./routes/addNewTranformer');
+var addNewTransformer = require('./routes/addNewTransformer');
 var userGetsPersonalUsage = require('./routes/userGetsPersonalUsage');
 var userConsumptionInPowerShed = require('./routes/userConsumptionInPowerShed');
 var transformerConsumption = require('./routes/transformerConsumption');
@@ -23,7 +23,7 @@ var govtGetsAreawiseConsumption = require('./routes/govtGetsAreawiseConsumption'
 
 app.use('/addUser', addUser)
 
-app.use('/addNewTranformer',addNewTranformer)
+app.use('/addNewTransformer',addNewTransformer)
 
 app.use('/userConsumptionInPowerShed', userConsumptionInPowerShed)
 

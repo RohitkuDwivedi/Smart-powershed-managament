@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const addNewTranformer = require("../models/addNewTranformer");
+const addNewTransformer = require("../models/addNewTransformer");
 
 // const commonFn = require('../utils/commonFn');
 
@@ -12,7 +12,7 @@ sendRes = (res, success, msg) => {
 }
 
 router.post('/', (req, res) => {
-    addNewTranformer.addNewTransformer(req.body, (err, transformer) => {
+    addNewTransformer.addNewTransformer(req.body, (err, transformer) => {
         if (err) sendRes(res, false, "Transformer not added");
         if (transformer) sendRes(res, true,
             "Transformer Added " + transformer);
