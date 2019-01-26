@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {TransformerService} from "../transformer.service"
 
 @Component({
   selector: 'app-add-new-transformer',
@@ -7,9 +8,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddNewTransformerComponent implements OnInit {
 
-  constructor() { }
+  transformerCode:string
+  transformerPin:number
+  res:any
 
-  ngOnInit() {
+  constructor(private transforemr:TransformerService) { }
+  ngOnInit(){}
+  addNewTransformer(){
+    const body={
+      transformerId:this.transformerCode,
+      areaPincode:this.transformerPin
+    }
+    console.log("sending"+ JSON.stringify(body));
+    
+    this.transforemr.addNewTransformer(body).subscribe(
+      temp => {
+        this.res = temp
+        console.log(temp)
+      }
+    )
   }
 
 }

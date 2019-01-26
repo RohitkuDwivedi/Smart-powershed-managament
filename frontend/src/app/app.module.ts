@@ -15,6 +15,7 @@ import { AddNewUserComponent } from './add-new-user/add-new-user.component';
 import { AddNewTransformerComponent } from './add-new-transformer/add-new-transformer.component';
 import { PowerShedModeComponent } from './power-shed-mode/power-shed-mode.component';
 import {LoginService} from "./login.service"
+import {TransformerService} from "./transformer.service"
 // new addition
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {DragDropModule} from '@angular/cdk/drag-drop';
@@ -125,7 +126,7 @@ import {
     MatTreeModule,
     ScrollingModule,
   ],
-  providers: [LoginService],
+  providers: [LoginService,TransformerService],
   bootstrap: [AppComponent],
   exports: [
   ]

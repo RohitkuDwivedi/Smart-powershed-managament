@@ -3,13 +3,10 @@
 
 <div class="box">
   <mat-form-field class="example-full-width">
-    <input matInput type="text" placeholder="TRANSFORMER CODE">
+    <input matInput type="text" placeholder="TRANSFORMER CODE" name="tName" [(ngModel)]="transformerCode">
   </mat-form-field>
   <mat-form-field class="example-full-width">
-    <input matInput type="email" placeholder="PINCODE">
+    <input matInput type="number" placeholder="PINCODE" name="tPincode" [(ngModel)]="transformerPin">
   </mat-form-field>
-  <mat-form-field class="example-full-width">
-    <input matInput type="email" placeholder="ADDRESS">
-  </mat-form-field>
-  <button class="example-full-width" mat-button>ADD TRANSFORMER</button>
+  <button (click)="addNewTransformer()" class="example-full-width" mat-button>ADD TRANSFORMER</button>
 </div>
