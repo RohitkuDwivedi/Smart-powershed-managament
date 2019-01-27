@@ -30,8 +30,7 @@ void setup()
   if (!LoRa.begin(BAND))
   {
     Serial.println("Starting LoRa failed!");
-    while (1)
-      ;
+    while (1);
   }
 }
 
@@ -41,23 +40,24 @@ int counter = 0;
 void loop()
 {
   myRecieve(); // set LoRa to recieve mode
-
-  if (millis() - prevTime >= interval)
-  { // check if 10 sec have passed
-    mySend();
-    prevTime = millis();
-  }
+//  if (millis() - prevTime >= interval)
+//  { // check if 10 sec have passed
+//    mySend();
+//    prevTime = millis();
+//  }
 }
+
 
 void mySend()
 {
   LoRa.beginPacket();
-  LoRa.print("NODE2: ");
-  LoRa.print(counter);
+  LoRa.print("10:20:30:40 ");
   LoRa.endPacket();
   Serial.println("DATA SEND: ");
   Serial.println(counter);
 }
+
+
 
 void myRecieve()
 {
@@ -68,6 +68,7 @@ void myRecieve()
     Serial.print("Received'");
 
     // read packet
+    
     while (LoRa.available())
     {
       Serial.print((char)LoRa.read());
