@@ -17,7 +17,7 @@
 
  
 //---------------------------GLOBAL VARIABLES (ps:PowerShed,n:normal)--------------------------------------------------
-
+int UniqueDeviceId = 1001;
 int threshold = 5;   // change to 3200 of as per meter (no of led blinks per unit)
 int ps_Blinks=0;
 int n_Blinks=0;
@@ -35,11 +35,14 @@ int ps_time=0;
 int ps_unit=0;
 //--------pin variables
 int blinkPin = 16; // pin to read blinks
-
+int relayPin = 17; // pin to control relay
+ 
 //------------------------- SETUP ------------------------------------------------------
 
 void setup() {
   pinMode(blinkPin,INPUT); // READS BLINK FROM METER
+  pinMode(relayPin,OUTPUT); // contorl RELAY pin
+  digitalWrite(relayPin,HIGH); // turn relay on
   Serial.begin(115200);
   while (!Serial); //If just the the basic function, must connect to a computer
   SPI.begin(5,19,27,18);
@@ -59,15 +62,37 @@ void loop() {
   myRecieve();
   checkPsMode();
   countIncrement();
+  trip();
+  dayOff();
  }
 
 //--------------------------my functions ----------------------------------
 //-------------- FUNCTION TO SEND DATA ---------------------------------------
-void dayOff(){
+
+void dayOff()   // function to calculate day's end and send data to rpi
+{
 if(millis()-dayStart >= fullDay){
   sendToPi();
   dayStart=millis();
   }  
+}
+
+
+// sendToPi method sends data about the consumption of data to rpi using lora
+void sendToPi(){
+  char rpiData[30];
+  sprintf(rpiData,"%d:%d",UniqueDeviceId,( n_UnitsConsumed + ps_UnitsConsumed));
+  LoRa.beginPacket();
+  LoRa.print(rpiData);
+  LoRa.endPacket();
+}
+
+void trip(){
+if(ps_Mode == 1 && ps_UnitsConsumed >= ps_unit ){
+  digitalWrite(relayPin,LOW);
+  }else{
+   digitalWrite(relayPin,HIGH); 
+    }
 }
 
 void mySend()
