@@ -5,21 +5,23 @@ const userConsumptionInPowerShed = mongoose.Schema({
         type: Number,
         required: true,
     },
-
     user: {
       type: String,
       required: true,
       unique: true
-  }
+  },
 });
 
 const uConsumptionInPowerShed = module.exports = mongoose.model("userConsumptionInPowerShed", userConsumptionInPowerShed);
 
 module.exports.userConsumptionInPowerShed = (consumption, callback) => {
-  uConsumptionInPowerShed.create( consumption, callback )
-  
-  
+  uConsumptionInPowerShed.create( consumption, callback ) 
 }
+
+module.exports.userConsumptionInPowerShed = (consumption, callback) => {
+  uConsumptionInPowerShed.create( consumption, callback ) 
+}
+
 
 
 // const Influx = require('influxdb-nodejs');

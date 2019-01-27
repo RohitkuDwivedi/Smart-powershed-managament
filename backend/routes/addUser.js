@@ -31,10 +31,18 @@ router.post('/authenticate', (req, res) => {
     })
 });
 
-router.get('', (req, res) => {
-    response= { data:"You have sent"+JSON.stringify(req.body) }
-    console.log(res.body);   
-     res.json(response);
+// router.get('/', (req, res) => {
+//     response= { data:"You have sent"+JSON.stringify(req.body) }
+//     console.log(res.body);   
+//      res.json(response);
+// });
+
+router.post('/userDetails', (req, res) => {
+  User.showuser(req.body,(err,user)=>{
+        if (err) sendRes(res, false, "Cannot display");
+        if (user) sendRes(res, true,
+            user);
+    })
 });
 
 module.exports = router;

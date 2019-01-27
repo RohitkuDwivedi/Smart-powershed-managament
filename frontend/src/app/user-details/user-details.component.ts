@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {LoginService} from '../login.service'
 
 @Component({
   selector: 'app-user-details',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./user-details.component.css']
 })
 export class UserDetailsComponent implements OnInit {
+  constructor(private display:LoginService) { }
+  
   user = {
     name:sessionStorage.getItem("name"),
     address:sessionStorage.getItem("address"),
@@ -14,15 +17,11 @@ export class UserDetailsComponent implements OnInit {
     email:sessionStorage.getItem("email"),
     userName:sessionStorage.getItem("userName")
   }
-  // sessionStorage.setItem("name",this.res.msg.name)
-  // sessionStorage.setItem("userName",this.res.msg.userName)
-  // sessionStorage.setItem("address",this.res.msg.address)
-  // sessionStorage.setItem("pincode",this.res.msg.pincode)
-  // sessionStorage.setItem("phoneNo",this.res.msg.phoneno)
-  // sessionStorage.setItem("email",this.res.msg.email)
-  constructor() { }
+  // users:any
 
-  ngOnInit() {
-  }
+  
+  
+  ngOnInit() {}
+  
 
 }
