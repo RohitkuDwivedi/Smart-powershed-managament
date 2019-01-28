@@ -23,7 +23,6 @@
 #define DI0     26
 #define BAND    433E6  //915E6 --
 
- 
 //---------------------------GLOBAL VARIABLES (ps:PowerShed,n:normal)--------------------------------------------------
 
 int threshold = 10;   // change to 3200 of as per meter (no of led blinks per unit)
@@ -63,6 +62,7 @@ countIncrement();
 
 //-------------- FUNCTION TO SEND DATA ---------------------------------------
 
+<<<<<<< HEAD
 void mySend()
 {
   LoRa.beginPacket();
@@ -73,6 +73,8 @@ void mySend()
   Serial.println(counter);
 }
 
+=======
+>>>>>>> e07ae63192b0979c2352df763f0acd3dbf3bc56d
 //---------------- FUNCTION TO SET INTO RECIEVE MODE -------------------------------------
 void myRecieve()
 {
@@ -86,6 +88,7 @@ void myRecieve()
     {
       Serial.print((char)LoRa.read());
     }
+<<<<<<< HEAD
 
     // print RSSI of packet
     Serial.print("' with RSSI ");
@@ -95,6 +98,39 @@ void myRecieve()
 
 
 void checkPsMode(){}
+=======
+    char *str= &str1[0];
+    msgID = atoi(strtok(str , ":" ));
+    ps_time = 1000 * atoi(strtok(0 , ":" ));
+    ps_unit = atoi(strtok(0 , ":" ));
+    ps_Timestamp = millis();
+    ps_Mode = 1;
+    Serial.println("in ps mode");
+    delay(2000);
+  }
+}
+
+void psReset(){   
+  if( millis() - ps_Timestamp >= ps_time ){
+    msgID = 0;
+    ps_time = 0;
+    ps_unit = 0;
+    ps_Timestamp = 0;
+    ps_Mode = 0;
+    n_UnitsConsumed = n_UnitsConsumed + ps_UnitsConsumed;
+    ps_UnitsConsumed=0 ;   
+    }
+}
+>>>>>>> e07ae63192b0979c2352df763f0acd3dbf3bc56d
+
+void checkPsMode(){
+  if(msgID!=0 ){ //check if home node is in Power shed mode?
+    psReset();
+  }
+}
+
+//------------------------------------ RESETS THE PSMOD AND ALL PS VARIABLES WHEN TIMOUT ------------------------
+
 
 void countIncrement(){
   if(ps_Mode==1)
@@ -108,9 +144,16 @@ void countIncrement(){
 }
 
 void psModeConsume(){
+<<<<<<< HEAD
   if(digitalRead(33)==1)
       {
         while(digitalRead(33)==1) // check debouncing
+=======
+ if(digitalRead(blinkPin)){
+        Serial.println();
+        Serial.print("ps BLINK INCREMENTED:");
+        delay(100);
+>>>>>>> e07ae63192b0979c2352df763f0acd3dbf3bc56d
         ++ps_Blinks;
       }
 
@@ -126,8 +169,15 @@ void psModeConsume(){
 void nModeConsume(){
   if(digitalRead(33)==1)
       {
+<<<<<<< HEAD
         while(digitalRead(33)==1) // check debouncing
         ++n_Blinks;
+=======
+        Serial.print("n BLINK INCREMENTED");
+        
+        delay(100);
+         ++n_Blinks;
+>>>>>>> e07ae63192b0979c2352df763f0acd3dbf3bc56d
       } 
       if(n_Blinks >= threshold){
       n_UnitsConsumed++;
@@ -137,7 +187,14 @@ void nModeConsume(){
 }
 
 void sendData(){
+<<<<<<< HEAD
   LoRa.print("\nconsumption NORMAL:");LoRa.print(n_UnitsConsumed);
   LoRa.print("\n PowerShed:");LoRa.print(ps_UnitsConsumed);
   Serial.print("data Sent :)");
+=======
+  char myData[40];
+  sprintf(myData,"consumption NORMAL: %d PowerShed:%d ",n_UnitsConsumed,ps_UnitsConsumed);
+  Serial.println(myData);
+  delay(1000);
+>>>>>>> e07ae63192b0979c2352df763f0acd3dbf3bc56d
 }

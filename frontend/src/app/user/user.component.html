@@ -1,20 +1,25 @@
 <user-header></user-header>
 <h1> USER HOME </h1>
+
 <div class="box">
   <div class="consumption">
-    <div class="tag">UNITS:</div>
-    <div class="value">{{units}}</div>
+    <div class="tag">User:</div>
+    <div class="value">{{user}}</div>
   </div>
 
-  <div class="rate">
-    <div class="tag">RATE:</div>
-    <div class="value">{{rate}}</div>
-  </div>
 
-  <div class="bill">
-    <div class="tag">BILL:</div>
-    <div class="value">{{units*rate}}</div>
+<div class="consumption">
+  <div class="tag">UNITS CONSUMED : </div>
+  <div class="value" *ngFor="let a of arr">
+    
+     {{a.unitsConsumedPerDay}}
   </div>
+</div>
+    
+ 
+  
+  
+
 
 <!--  table START -->
   <div>

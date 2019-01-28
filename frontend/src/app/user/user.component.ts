@@ -1,29 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {LoginService} from "../login.service";
+import { log } from 'util';
 // import {Observable} from 'rxjs';
-
-
-
-export interface PeriodicElement {
-  name: string;
-  position: number;
-  weight: number;
-  symbol: string;
-}
-
-const ELEMENT_DATA: PeriodicElement[] = [
-  {position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H'},
-  {position: 2, name: 'Helium', weight: 4.0026, symbol: 'He'},
-  {position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li'},
-  {position: 4, name: 'Beryllium', weight: 9.0122, symbol: 'Be'},
-  {position: 5, name: 'Boron', weight: 10.811, symbol: 'B'},
-  {position: 6, name: 'Carbon', weight: 12.0107, symbol: 'C'},
-  {position: 7, name: 'Nitrogen', weight: 14.0067, symbol: 'N'},
-  {position: 8, name: 'Oxygen', weight: 15.9994, symbol: 'O'},
-  {position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F'},
-  {position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne'},
-];
-
 
 @Component({
   selector: 'app-user',
@@ -32,35 +10,56 @@ const ELEMENT_DATA: PeriodicElement[] = [
 })
 
 export class UserComponent implements OnInit {
-   userReply:any
-   userName:String
-   units=1324
-   rate=15
-
-   user = {
-    name:"rkkljd",
-    address:"p0atja nai",
-    pincode:20384,
-    phoneno:998077770648,
-    email:"roh80it.ku.dwivedi@gmail.com",
-    userName:"RohitKuDwivedi",
-    password:"bla-bla"
-  }
+  
   
   constructor(private userService:LoginService) { 
   }
-
+  user = sessionStorage.getItem("userName")
+  arr =[]
+  res:any
+  i:Number
+  
+  
   ngOnInit(){
+  
     if(sessionStorage.getItem("role")!="user"){
     window.location.href= "http://localhost:4200/login"
     }
     else{
-      this.userName = sessionStorage.getItem("userName")
-    }
-  }  
-}
+      const  body={ 
+        userName: sessionStorage.getItem("userName")
+      }
+      console.log("arr"+this.arr);
+      
+      
+      
+      this.userService.getConsumption().subscribe(
+        (val) => {
+          this.res = val
+          this.res = this.res.msg
+          console.log(this.res.length);
+          
+          var i;
+          for (i = 0; i < this.res.length; i++) { 
+            if(this.res[i].userName == body.userName)
+            {
+              console.log(this.res[i]._id)//,this.res[i].unitsConsumedPerDay);
+             this.arr.push(this.res[i]);
 
-export class TableBasicExample {
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
-  dataSource = ELEMENT_DATA;
+            }
+          }
+
+          console.log(this.arr);
+          
+      }
+
+      )
+ 
+    }
+
+  }
+
+ 
+  
+  
 }

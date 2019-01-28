@@ -2,22 +2,28 @@
 <h1>ADD NEW USER</h1>
 <div class="box">
     <mat-form-field class="example-full-width">
-        <input matInput type="text" placeholder="NAME">
+        <input matInput type="text" placeholder="NAME" name="name" [(ngModel)]="name">
     </mat-form-field>
     <mat-form-field class="example-full-width">
-        <input matInput type="email" placeholder="EMAIL">
+        <input matInput type="text" placeholder="EMAIL" name="email" [(ngModel)]="email" >
     </mat-form-field>
     <mat-form-field class="example-full-width">
-        <input matInput type="email" placeholder="ADDRESS">
+        <input matInput type="text" placeholder="ADDRESS" name="address" [(ngModel)]="address">
     </mat-form-field>
     <mat-form-field class="example-full-width">
-        <input matInput type="email" placeholder="USERNAME">
+        <input matInput type="number" placeholder="PINCODE" name="pincode" [(ngModel)]="pincode">
     </mat-form-field>
     <mat-form-field class="example-full-width">
-        <input matInput type="email" placeholder="PASSWORD">
+        <input matInput type="number" placeholder="PHONE NUMBER" name="phoneno" [(ngModel)]="phoneno">
     </mat-form-field>
     <mat-form-field class="example-full-width">
-            <input matInput type="email" placeholder="TRANSFORMER">
-        </mat-form-field>
-    <button class="example-full-width" mat-button>ADD USER</button>
+        <input matInput type="text" placeholder="USERNAME" name="userName" [(ngModel)]="userName">
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+        <input matInput type="password" placeholder="PASSWORD" name="password" [(ngModel)]="password"> 
+    </mat-form-field>
+    <!-- <mat-form-field class="example-full-width">
+            <input matInput type="text" placeholder="TRANSFORMER">
+        </mat-form-field> -->
+    <button class="example-full-width" mat-button (click)="addUser()">ADD USER</button>
 </div>

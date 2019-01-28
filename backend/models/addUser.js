@@ -49,13 +49,19 @@ module.exports.addUser = (user, callback) => {
     User.create( user, callback )
 }
 
-module.exports.authenticate = (user, callback) => {
-finduser={
-    
-    userName : user.userName,
-    password : user.password 
-}
+module.exports.showuser = (user,callback) => {
+    finduser={
+        userName : user.userName,
+        password : user.password 
+    }
     User.findOne(finduser,callback)
+}
 
+module.exports.authenticate = (user, callback) => {
+    finduser={
+        userName : user.userName,
+        password : user.password 
+    }
+    User.findOne(finduser,callback)
 }
 

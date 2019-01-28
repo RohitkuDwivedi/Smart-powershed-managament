@@ -10,16 +10,16 @@ sendRes = (res, success, msg) => {
 }
 
 router.post('/', (req, res) => {
-    // data =  {
-    //     user:req.body.user,
-    //     consumptions:req.body.consumptions
+    // powerShed.consumption(req.body, () => { sendRes(res, true, "sucess") },
+    //     (err) =>{ sendRes(res, false, "ERROR") })
 
-    // }
-    console.log(req.body);
-    
-    powerShed.consumption(req.body, () => { sendRes(res, true, "sucess") },
-        (err) =>{ sendRes(res, false, "ERROR") })
-
+    powerShed.userConsumptionInPowerShed(req.body, (err, consumption) => {
+        if (err) sendRes(res, false, "User can't be created");
+        if (consumption) sendRes(res, true,
+                "User Created " + consumption);
+    })
 });
+
+
 
 module.exports = router;
