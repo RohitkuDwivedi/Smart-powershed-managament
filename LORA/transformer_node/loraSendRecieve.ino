@@ -25,6 +25,7 @@ void setup()
     ; //if just the the basic function, must connect to a computer
   delay(1000);
   Serial.println("LoRa Receiver");
+  pinMode(32,INPUT);
   SPI.begin(5, 19, 27, 18);
   LoRa.setPins(SS, RST, DI0);
   if (!LoRa.begin(BAND))
@@ -42,21 +43,26 @@ void loop()
 {
   myRecieve(); // set LoRa to recieve mode
 
-  if (millis() - prevTime >= interval)
-  { // check if 10 sec have passed
+   if (digitalRead(32)==1){
     mySend();
     prevTime = millis();
-  }
+    }
+  
 }
 
 void mySend()
 {
+  long msgID = random(1000,9999);
+  char myMsgID[20];
+  sprintf(myMsgID,"%ld:30:3",msgID);
+  //msgID:time in sec:amount of unit for PSMode
+  //Serial.print(sendData);
   LoRa.beginPacket();
-  LoRa.print("NODE2: ");
-  LoRa.print(counter);
+  LoRa.print(myMsgID);
   LoRa.endPacket();
   Serial.println("DATA SEND: ");
-  Serial.println(counter);
+  Serial.println(myMsgID);
+
 }
 
 void myRecieve()
