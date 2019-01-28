@@ -15,7 +15,6 @@
 #define DI0     26
 #define BAND    433E6  //915E6 --
 
- 
 //---------------------------GLOBAL VARIABLES (ps:PowerShed,n:normal)--------------------------------------------------
 int UniqueDeviceId = 1001;
 int threshold = 5;   // change to 3200 of as per meter (no of led blinks per unit)
@@ -95,17 +94,9 @@ if(ps_Mode == 1 && ps_UnitsConsumed >= ps_unit ){
     }
 }
 
-void mySend()
-{
-  LoRa.beginPacket();
-  //send consumption if time passed is 24h
-  LoRa.print("");
-  LoRa.endPacket();
-}
-
 //---------------- FUNCTION TO SET INTO RECIEVE MODE -------------------------------------
 void myRecieve()
-{ 
+{
   int packetSize = LoRa.parsePacket();
   if (packetSize){
     String str1;
@@ -120,25 +111,12 @@ void myRecieve()
     ps_time = 1000 * atoi(strtok(0 , ":" ));
     ps_unit = atoi(strtok(0 , ":" ));
     ps_Timestamp = millis();
-    //ps_Mode = 1;
+    ps_Mode = 1;
     Serial.println("in ps mode");
     delay(2000);
   }
 }
 
-
-void checkPsMode(){
-  if(msgID!=0 ){
-  ps_Mode=1;
-  Serial.println(ps_Mode);
-  }
-  else{
-    ps_Mode=0;
-    Serial.println(ps_Mode);
-    }
-}
-
-//------------------------------------ RESETS THE PSMOD AND ALL PS VARIABLES WHEN TIMOUT ------------------------
 void psReset(){   
   if( millis() - ps_Timestamp >= ps_time ){
     msgID = 0;
@@ -146,8 +124,19 @@ void psReset(){
     ps_unit = 0;
     ps_Timestamp = 0;
     ps_Mode = 0;
+    n_UnitsConsumed = n_UnitsConsumed + ps_UnitsConsumed;
+    ps_UnitsConsumed=0 ;   
     }
 }
+
+void checkPsMode(){
+  if(msgID!=0 ){ //check if home node is in Power shed mode?
+    psReset();
+  }
+}
+
+//------------------------------------ RESETS THE PSMOD AND ALL PS VARIABLES WHEN TIMOUT ------------------------
+
 
 void countIncrement(){
   Serial.println("in counter increment");
@@ -165,7 +154,7 @@ void psModeConsume(){
  if(digitalRead(blinkPin)){
         Serial.println();
         Serial.print("ps BLINK INCREMENTED:");
-        delay(1000);
+        delay(100);
         ++ps_Blinks;
       }
     if(ps_Blinks >= threshold){
@@ -185,7 +174,7 @@ void nModeConsume(){
       {
         Serial.print("n BLINK INCREMENTED");
         
-        delay(1000);
+        delay(100);
          ++n_Blinks;
       } 
 
@@ -200,5 +189,5 @@ void sendData(){
   char myData[40];
   sprintf(myData,"consumption NORMAL: %d PowerShed:%d ",n_UnitsConsumed,ps_UnitsConsumed);
   Serial.println(myData);
-  delay(2000);
+  delay(1000);
 }
