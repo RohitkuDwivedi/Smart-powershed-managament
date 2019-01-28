@@ -54,15 +54,7 @@ export class UserComponent implements OnInit {
       }
 
       )
-
-      // if(body.userName == ){
-      //   console.log("good");
-        
-      //   console.log(this.res.userName,this.res.unitsConsumedPerDay);
-      // }
-      
-      
-      
+ 
     }
 
   }
