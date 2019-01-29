@@ -39,6 +39,8 @@ void setup()
 int interval = 10000;
 int prevTime = millis();
 int counter = 0;
+int Home_Id;
+int Home_consumed_unit;
 void loop()
 {
   myRecieve(); // set LoRa to recieve mode
@@ -70,17 +72,31 @@ void myRecieve()
   int packetSize = LoRa.parsePacket();
   if (packetSize)
   {
+    String str1;
+   
     // received a packet
-    Serial.print("Received'");
+   // Serial.print("unit of Consumption for Day:: ");
 
     // read packet
     while (LoRa.available())
     {
-      Serial.print((char)LoRa.read());
+      str1.concat((char)LoRa.read());
     }
-
+    char *str=&str1[0];
+    Home_Id = atoi(strtok(str,":"));
+    Home_consumed_unit = atoi(strtok(0,":"));
     // print RSSI of packet
-    Serial.print("' with RSSI ");
-    Serial.println(LoRa.packetRssi());
+    sendRpi();
+    //Serial.println(LoRa.packetRssi());
   }
+}
+
+/*--------------- to send data received from home Node to Rpi----------*/
+
+void sendRpi(){
+  
+    char receivedData[40];
+    sprintf(receivedData,"Home ID::%d \nunit consumed for day::%d",Home_Id,Home_consumed_unit);
+    Serial.println(receivedData);
+    
 }
