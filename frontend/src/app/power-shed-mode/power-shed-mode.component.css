@@ -14,7 +14,11 @@ width: 100%;
     flex-flow: column
 }
 
-*{
+.button{
     background-color: rgb(4, 28, 80);
     color: rgb(255, 218, 6)
+}
+.example-button-row button,
+.example-button-row a {
+  margin-right: 3900px;
 }

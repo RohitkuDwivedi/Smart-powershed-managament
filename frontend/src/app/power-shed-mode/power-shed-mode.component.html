@@ -1,35 +1,98 @@
 <admin-header></admin-header>
 <h1>POWER SHED MODE</h1>
+
 <div class="box">
-    <div class="item">
-        <mat-slide-toggle class="example-margin" [color]="color" [checked]="checked" [disabled]="disabled">
+    <div class = "button">
+        {{transformers}}
+        <button mat-raised-button color="accent" (click)="onclick()">ps</button></div>
+<!-- <div class="item">
+    <mat-slide-toggle class="example-margin" [color]="color" [checked]="checked" [disabled]="disabled">
+        POWER SHED MODE
+    </mat-slide-toggle>
+</div> -->
+
+<!-- <mat-checkbox  *ngFor="let transformer of myTransformers" >
+    <mat-slide-toggle class="example-margin"  [color]="color" 
+    [checked]="checked"
+    [disabled]="disabled" >{{transformer.transformerId}}</mat-slide-toggle > 
+       
+</mat-checkbox> -->
+
+
+<!-- <section class="example-section"  *ngFor="let transformer of myTransformers"> -->
+        
     
-            POWER SHED MODE
+<!-- <mat-checkbox class="example-margin" >
+<section class="example-section">
+        
+        <mat-slide-toggle
+            class="example-margin"
+            [color]="color"
+            [checked]="checked"
+            [disabled]="disabled">
+            {{transformer.transformerId}}
         </mat-slide-toggle>
-    </div>
-    <!-- <div class="checkbox">
-        <mat-checkbox  *ngFor="let transformer of transformers" [(ngModel)]="transformer.status">{{transformer.id}}  {{transformer.status}}</mat-checkbox>
-    </div> -->
-    <div class = "trans">
-    <ul>
-            <ul class="trans" *ngFor="let transformer of myTransformers">
-             Id {{ transformer.transformerId }} <br>
-             AreaPincode {{ transformer.areaPincode }}
-            
-            </ul>
-    </ul>
-    </div>
+    
+        </section></mat-checkbox>
+    </section>     -->
+
+
+<!-- <section class="example-section">
+    <mat-slide-toggle
+        class="example-margin"
+        [color]="color"
+        [checked]="checked"
+        [disabled]="disabled">
+        {{transformers}}
+    </mat-slide-toggle>
+    </section> -->
+
+
+
+
 </div>
 
+  
+
+<!-- 
+      <mat-checkbox
+      class="example-margin"
+      [(ngModel)]="checked"
+      
+      >POWER SHED MODE ON
+  </mat-checkbox> -->
+
+
+
+
+<!-- <mat-checkbox class="example-margin" [(ngModel)]="checked">Checked</mat-checkbox> -->
 
 <!-- dropdown
-    <div class="item">
-        <mat-form-field>
-            <mat-select placeholder="Transformer">
-                <mat-option *ngFor="let food of foods" [value]="food.value">
-                    {{food.viewValue}}
-                </mat-option>
-            </mat-select>
-        </mat-form-field>
-    </div> -->
+<div class="item">
+    <mat-form-field>
+        <mat-select placeholder="Transformer">
+            <mat-option *ngFor="let food of foods" [value]="food.value">
+                {{food.viewValue}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+</div> -->
+<!-- <div class="checkbox">
+<mat-checkbox  *ngFor="let transformer of mytransformers" [(ngModel)]="transformer.status">
+        {{transformer.transformerId}}  {{transformer.areaPincode}}</mat-checkbox>
+</div> -->
+
+<!-- <div class = "trans">
+<ul>
+        <ul class="trans" *ngFor="let transformer of myTransformers">
+            Id {{ transformer.transformerId }} <br>
+            AreaPincode {{ transformer.areaPincode }}
+        
+        </ul>
+</ul>
+</div> -->
+
+
+
+
    

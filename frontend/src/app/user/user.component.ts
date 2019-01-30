@@ -18,6 +18,7 @@ export class UserComponent implements OnInit {
   arr =[]
   res:any
   i:Number
+  x:Number
   
   
   ngOnInit(){
@@ -37,19 +38,25 @@ export class UserComponent implements OnInit {
         (val) => {
           this.res = val
           this.res = this.res.msg
-          console.log(this.res.length);
-          
-          var i;
+          // console.log(this.res.length);
+          var i=0
+          let sum=0
           for (i = 0; i < this.res.length; i++) { 
             if(this.res[i].userName == body.userName)
             {
-              console.log(this.res[i]._id)//,this.res[i].unitsConsumedPerDay);
-             this.arr.push(this.res[i]);
-
+              // console.log("arr1 = "+this.res[i].unitsConsumedPerDay);
+              this.arr.push(this.res[i].unitsConsumedPerDay);
             }
-          }
 
+          }
           console.log(this.arr);
+          this.arr.forEach(element => {
+            sum=sum+element
+          }); 
+          console.log(sum);
+          this.x = sum
+
+          
           
       }
 

@@ -25,6 +25,12 @@ export class TransformerService {
   showall(){
     return this.http.get(this.url+"/displayAllTransformers",this.httpOptions)
   }
+
+  sendPsMode(body){
+    console.log("service:"+JSON.stringify(body));
+    
+    return this.http.post("http://localhost:3000/psOn",body,this.httpOptions)
+  }
   
   
   

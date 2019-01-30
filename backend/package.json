@@ -16,6 +16,7 @@
     "influxdb-nodejs": "^2.11.0",
     "lodash": "^4.17.11",
     "mongoose": "^5.4.4",
+    "mqtt": "^2.18.8",
     "on-headers": "^1.0.1"
   },
   "devDependencies": {},

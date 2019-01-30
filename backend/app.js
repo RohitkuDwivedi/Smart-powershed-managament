@@ -20,20 +20,78 @@ var transformerConsumption = require('./routes/transformerConsumption');
 var govtGetsAreawiseConsumption = require('./routes/govtGetsAreawiseConsumption');
 
 app.use('/addUser', addUser)
-
 app.use('/addNewTransformer',addNewTransformer)
-
 app.use('/userConsumptionInPowerShed', userConsumptionInPowerShed)
-
 app.use('/transformerConsumption', transformerConsumption)
-
 app.use('/userGetsPersonalUsage',userGetsPersonalUsage)
-
 app.use('/govtGetsAreawiseConsumption',govtGetsAreawiseConsumption )
+
+app.post('/psOn',(req,res)=>{
+    var topic = req.body.topic
+
+var mqtt = require('mqtt')
+// var client  = mqtt.connect('mqtt://test.mosquitto.org')
+const client =
+    mqtt.connect({
+        host: '127.0.0.1',
+        port: 1883
+    });
+ 
+client.on('connect', function () {
+  client.subscribe(topic, function (err) {
+    if (!err) {
+      client.publish(topic, 'ON')
+    }
+  })
+})
+ 
+client.on('message', function (topic, message) {
+  // message is Buffer
+  console.log(message.toString())
+  client.end()
+})
+
+
+
+
+
+
+
+    // client.on('connect', function () {
+    //     client.subscribe(topic, function (err) {
+    //       if (!err) {
+    //         client.publish(topic, 'Hello mqtt',null,(err)=>console.log(err))
+    //         console.log("published");
+            
+    //       }
+    //     })
+    //   })
+    //   client.on('message', function (topic, message) {
+    //     // message is Buffer
+    //     console.log(message.toString())
+    //   })
+
+
+    res.json({
+         success:true,
+         msg: "notified"
+     });
+
+    })
+   
+
 
 app.get('*', (req, res) => {
     res.send('Enter valid url');
 });
+
+
+
+
+
+
+
+
 
 port = 3000
 
