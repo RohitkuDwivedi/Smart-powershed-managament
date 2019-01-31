@@ -96,7 +96,7 @@ void myRecieve()
 void sendRpi(){
   
     char receivedData[40];
-    sprintf(receivedData,"Home ID::%d \nunit consumed for day::%d",Home_Id,Home_consumed_unit);
+    sprintf(receivedData,"%d:%d",Home_Id,Home_consumed_unit);
     Serial.println(receivedData);
     
 }
