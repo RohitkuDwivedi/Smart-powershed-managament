@@ -18,7 +18,7 @@
  
 //---------------------------GLOBAL VARIABLES (ps:PowerShed,n:normal)--------------------------------------------------
 int UniqueDeviceId = 1001;
-int threshold = 5;   // change to 3200 of as per meter (no of led blinks per unit)
+int threshold = 3;   // change to 3200 of as per meter (no of led blinks per unit)
 int ps_Blinks=0;
 int n_Blinks=0;
 int ps_Mode=0;
@@ -118,12 +118,11 @@ void myRecieve()
     }
     char *str= &str1[0];
     msgID = atoi(strtok(str , ":" ));
-    ps_time = 1000 * atoi(strtok(0 , ":" ));
+    ps_time = 2000 * atoi(strtok(0 , ":" ));
     ps_unit = atoi(strtok(0 , ":" ));
     ps_Timestamp = millis();
     //ps_Mode = 1;
-    Serial.println("in ps mode");
-    delay(2000);
+    Serial.println("in PS MODE");
   }
 }
 
@@ -131,11 +130,11 @@ void myRecieve()
 void checkPsMode(){
   if(msgID!=0 ){
   ps_Mode=1;
-  Serial.println(ps_Mode);
+//  Serial.println(ps_Mode);
   }
   else{
     ps_Mode=0;
-    Serial.println(ps_Mode);
+//    Serial.println(ps_Mode);
     }
 }
 
@@ -151,7 +150,7 @@ void psReset(){
 }
 
 void countIncrement(){
-  Serial.println("in counter increment");
+//  Serial.println("in counter increment");
   if(ps_Mode==1)
   { 
     psModeConsume();  // check for no blink and units consumption
@@ -163,10 +162,11 @@ void countIncrement(){
 }
 
 void psModeConsume(){
- if(digitalRead(blinkPin)){
-        Serial.println();
+ if(!digitalRead(blinkPin)){ // pullUp circuit
+//        Serial.println();
         Serial.print("ps BLINK INCREMENTED:");
-        delay(1000);
+        delay(200);
+//    while(!digitalRead(blinkPin));
         ++ps_Blinks;
       }
     if(ps_Blinks >= threshold){
@@ -180,13 +180,13 @@ void psModeConsume(){
 void nModeConsume(){
   
   
-  Serial.println();
-  Serial.print("blinkPin pin state in nmode:");
-   if(digitalRead(blinkPin))
+//  Serial.println();
+//  Serial.print("blinkPin pin state in nmode:");
+   if(!digitalRead(blinkPin)) // pullUp circuit
       {
-        Serial.print("n BLINK INCREMENTED");
-        
-        delay(1000);
+        Serial.println("n BLINK INCREMENTED");
+        while(!digitalRead(blinkPin));
+//        delay(1000);
          ++n_Blinks;
       } 
 
